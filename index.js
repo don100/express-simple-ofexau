@@ -3,7 +3,7 @@ const express = require('express'),
   cors = require('cors'),
   multer = require('multer'),
   bodyParser = require('body-parser');
-  const createError = require('http-errors');
+const createError = require('http-errors');
 
 // File upload settings
 const PATH = './uploads';
@@ -27,6 +27,9 @@ app.use(
     extended: false,
   })
 );
+app.get('', function (req, res) {
+  res.sendFile(__dirname + '/pages/index.html');
+});
 app.get('/api', function (req, res) {
   res.end('File catcher');
 });
